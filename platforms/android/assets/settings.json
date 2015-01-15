@@ -1,0 +1,11 @@
+{
+    "GDLibraryMode": "GDEnterpriseSimulation",
+    "GDApplicationID":"com.swyftmobile.good",
+    "GDApplicationVersion":"2.5.12",
+    "GDConsoleLogger": [
+        "GDFilterErrors_",
+        "GDFilterWarnings_",
+        "GDFilterInfo_",
+        "GDFilterDetailed_",
+    ]
+}

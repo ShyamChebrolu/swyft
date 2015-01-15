@@ -1,0 +1,385 @@
+/*******************************************************************
+*************GLOBAL OVERRIDES **************************************
+*******************************************************************/
+html, body {
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/*******************************************************************
+*************LAYOUT PAGE STYLES ************************************
+*******************************************************************/
+/* Hides Page border border */
+.ui-body-a, .ui-overlay-a {
+    border: none;
+}
+
+/* Prevents Padding Pages */
+.ui-content {
+    padding: 0 0 0 0;
+}
+
+.loadingCover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #f2f2f2;
+}
+
+@media (min-width: 1200px) {
+    /* wrap on wide viewports once open*/
+    .ui-panel-page-content-open.ui-panel-page-content-position-left {
+        margin-right: 17em;
+    }
+
+    .ui-panel-page-content-open.ui-panel-page-content-position-right {
+        margin-left: 17em;
+    }
+
+    .ui-panel-page-content-open {
+        width: auto;
+    }
+
+    /* disable "dismiss" on wide viewports*/
+    .ui-panel-dismiss {
+        display: none;
+    }
+
+    /*same as the above but for panels with display mode "push" only*/
+    .ui-panel-page-content-open.ui-panel-page-content-position-left.ui-panel-page-content-display-push {
+        margin-right: 17em;
+    }
+
+    .ui-panel-page-content-open.ui-panel-page-content-position-right.ui-panel-page-content-display-push {
+        margin-left: 17em;
+    }
+
+    .ui-panel-page-content-open.ui-panel-page-content-display-push {
+        width: auto;
+    }
+
+    .ui-panel-dismiss-display-push {
+        display: none;
+    }
+
+}
+
+.alertify-message {
+    color: #666666;
+}
+
+.gpsErrIcon {
+    display: none;
+}
+
+.liButton {
+    margin: 0;
+    text-align: left;
+}
+
+.liButtonSep {
+    padding: .5em 1.143em;
+    font-size: 14px;
+    font-weight: 700;
+    outline: 0;
+    cursor: default;
+}
+
+/*******************************************************************
+*************IFRAME PAGE STYLES ************************************
+*******************************************************************/
+.iframeWrapper {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.iframeWrapper > iframe {
+    border: none;
+    width: 100%;
+}
+
+/*******************************************************************
+*************SOME GENERAL STYLES ***********************************
+*******************************************************************/
+
+.padMarReset {
+    padding: 0;
+    margin: 0;
+}
+
+.centerDiv {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 0 0 0;
+}
+
+.mw350 {
+    max-width: 350px;
+}
+
+.mw320 {
+    max-width: 320px;
+}
+
+.mw300 {
+    max-width: 300px;
+}
+
+.mw400 {
+    max-width: 400px;
+}
+
+.mw650 {
+    max-width: 650px;
+}
+
+.padding10 {
+    padding: 10px;
+}
+
+.padding15 {
+    padding: 15px;
+}
+
+.paddingBottom15 {
+    padding-bottom: 15px;
+}
+
+.paddingBottom5 {
+    padding-bottom: 5px;
+}
+
+.margin15 {
+    margin: 15px;
+}
+
+.textLeft {
+    text-align: left;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.outlineRemove {
+    outline: none;
+    border: none;
+}
+
+.cssBlock {
+    display: block;
+}
+
+.cssHide {
+    display: none;
+}
+
+.opChange {
+    opacity: .9;
+}
+
+.logoImgBg {
+    text-align: center;
+    background-color: #FFF;
+    border: none;
+    margin: 0 auto;
+}
+
+.mainPanelImg {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/*******************************************************************
+*************LOADING PAGE STYLES ***********************************
+*******************************************************************/
+
+#loadingPage {
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.textBgColor {
+    color: #ffffff;
+}
+
+.setupContent {
+    padding: 15px;
+
+}
+
+/*******************************************************************
+*************DEVICE INFO PAGE STYLES *******************************
+*******************************************************************/
+
+.deviceInfoWrapper {
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
+.mapCanvas {
+    position: relative;
+    border: 1px solid #030303;
+    height: 300px;
+    width: 100%;
+}
+
+/*******************************************************************
+*************DEBUG PAGE STYLES *************************************
+*******************************************************************/
+
+#debugIdWrapper {
+    padding: 10px;
+    border: 1px #ccc solid;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFa121), to(#de841b));
+    margin: 0 auto;
+    width: 175px;
+    display: none;
+}
+
+#debugIdTitle {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 900;
+}
+
+#debugId {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 28px;
+    color: #fff;
+    font-weight: 300;
+}
+
+/*******************************************************************
+*************Portrait layout (default)******************************
+*******************************************************************/
+
+.app {
+    /* 170px x 200px */
+    background: url(../img/swoosh-logo.png) no-repeat center top;
+    /* position in the center of the screen */
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    /* text area height */
+    height: 50px;
+    /* text area width */
+    width: 225px;
+    text-align: center;
+    /* image height is 200px (bottom 20px are overlapped with text) */
+    padding: 180px 0 0 0;
+    /* offset vertical: half of image height and text area height */
+    /* offset horizontal: half of text area width */
+    margin: -115px 0 0 -112px;
+}
+
+#loading h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0 0 0 0;
+    overflow: visible;
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+.status {
+    background-color: #F90;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: 0 30px;
+    padding: 2px 0;
+}
+
+.status.complete {
+    background-color: #26ACE2;
+}
+
+.hide {
+    display: none;
+}
+
+@-moz-keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+.blink {
+    -webkit-animation: fade 3000ms infinite;
+    -moz-animation: fade 3000ms infinite;
+    -o-animation: fade 3000ms infinite;
+    animation: fade 3000ms infinite;
+}
+
+.btnBorderRadius.ui-btn-icon-notext.ui-corner-all {
+    -webkit-border-radius: .3125em;
+    border-radius: .3125em;
+}
+
+/*******************************************************************
+*************Validation Styling ************************************
+*******************************************************************/
+
+.isReq {
+    border-color: #ff0000;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.ui-icon-mail {
+    display: none;
+}

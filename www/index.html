@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META -->
+    <title>Swyft Mobile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="js/jq/jqm/lib/jquery.mobile.structure-1.4.3.min.css"/>
+    <link rel="stylesheet" type="text/css" href="js/jq/jqm/theme/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" type="text/css" href="js/jq/jqm/theme/swyft_theme_v_2_3.min.css"/>
+    <link rel="stylesheet" type="text/css" href="js/vendor/alertify/alertify.core.css"/>
+    <link rel="stylesheet" type="text/css" href="js/vendor/alertify/alertify.default.css"/>
+    <link rel="stylesheet" type="text/css" href="css/master.css"/>
+    <!-- Easy XDM -->
+    <script src="js/vendor/exdm/easyXDM.min.js"></script>
+    <!-- MS Maps -->
+    <script charset="utf-8"
+            src="https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&amp;mkt=en-us&amp;s=1"></script>
+    <!-- JQ and JQM -->
+    <script src="js/jq/jquery/jquery-1.11.1.min.js"></script>
+    <script src="js/swyft/mobileinit.min.js"></script>
+    <script src="js/jq/jqm/lib/jquery.mobile-1.4.3.min.js"></script>
+    <!-- Bing Maps JQ Plugin -->
+    <script src="js/jq/plugins/bmaps/jquery.ui.bmap.min.js"></script>
+</head>
+<body>
+<!-- Loading Page ***************************************************************************************************-->
+<div data-role="page" id="loading">
+    <div role="main" class="ui-content" id="loadingC">
+        <div id="loadingPage">
+            <div class="app">
+                <h1>Swyft Mobile</h1>
+
+                <div id="deviceready">
+                    <p class="status pending blink">Connecting to Device</p>
+
+                    <p class="status complete blink hide">Device is Ready</p>
+
+                    <p class="status complete blink hide">Welcome Please Login</p>
+                    <a href="#welcomeSetup" class="ui-btn ui-icon-gear ui-btn-icon-left ui-corner-all">Setup</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h5>Copyright Swyft Technology, LLC<br/>&copy; 2013. All Rights Reserved.</h5>
+    </div>
+</div>
+<!-- Setup Page *****************************************************************************************************-->
+<div data-role="page" id="welcomeSetup">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title">Setup</div>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+        btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div role="main" class="ui-content" id="welcomeSetupC">
+        <div class="centerDiv mw300">
+            <div class="textCenter padding15">
+                <h2>Please Setup Your Connection Below:</h2>
+
+                <p>Enter the information below to activate your Swyft account:</p>
+            </div>
+            <form id="initForm" data-ajax="false" onSubmit="return false">
+                <input type="text" name="UserID" size="50" id="txtUIDWS" placeholder="User ID" value=""
+                       class="reqInput"/>
+                <input type="text" name="InitKey" size="50" id="txtInitKeyWS" placeholder="Initialization Key" value=""
+                       class="reqInput"/>
+                <button class="ui-btn ui-icon-user ui-btn-icon-left ui-corner-all" id="btnInitDevice">Submit</button>
+                <button class="ui-btn ui-icon-minus ui-btn-icon-left ui-corner-all clearEntries"
+                        data-swyft-form="initForm">Clear
+                </button>
+            </form>
+        </div>
+        <!-- Err Msg -->
+        <div data-role="popup" id="valErrorMsg_initForm" class="mw300" data-overlay-theme="a" data-theme="c"
+             data-disabled="false" data-shadow="true" data-corners="true" data-transition="none"
+             data-position-to="window" data-dismissible="true">
+            <div data-role="header">
+                <h1 class="ui-title">Notification</h1>
+            </div>
+            <div data-role="content" data-theme="d" class="textCenter padding10">
+                <h3 class="ui-title">Please Check All Fields in Red</h3>
+
+                <p>Your Device Was Not Initialized</p>
+                <button class="ui-btn ui-btn-b ui-icon-back ui-btn-icon-left ui-corner-all" data-inline="true"
+                        data-rel="back">OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Setup Page ***********************************************************************************************-->
+<div data-role="page" id="setupHome">
+    <div id="mainHeader" data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Setup</div>
+        <button class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+          btnBorderRadius btnBack">No Text
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+        btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div role="main" class="ui-content" id="setupHomeC">
+        <div class="mw300 centerDiv">
+            <div class="textCenter">
+                <h3>Please Make Your Selection:</h3>
+                <a class="ui-btn ui-icon-back ui-btn-icon-left ui-corner-all btnLogin">Log Back In</a>
+                <a class="ui-btn ui-btn-b ui-icon-alert ui-btn-icon-left ui-corner-all btnFactoryReset">Factory Reset
+                    App</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Begin Dashboard ************************************************************************************************-->
+<div data-role="page" id="dash" class="iframePage ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Dashboard</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+        btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div data-role="main" class="ui-content">
+        <div class="loadingCover cssBlock"></div>
+        <div id="xdmDashFrame" class="iframeWrapper">
+            <iframe id="dashIframe" src=""></iframe>
+        </div>
+    </div>
+</div>
+<!-- Begin Local Market Page ****************************************************************************************-->
+<div data-role="page" id="local" class="iframePage ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Local Market</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+         btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div data-role="main" class="ui-content">
+        <div class="loadingCover cssBlock"></div>
+        <div id="xdmLocalFrame" class="iframeWrapper">
+            <iframe id="localIframe" src=""></iframe>
+        </div>
+    </div>
+</div>
+<!-- Begin Follow Up Page *******************************************************************************************-->
+<div data-role="page" id="followUps" class="iframePage ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Appointments</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+           btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="loadingCover cssBlock"></div>
+        <div id="xdmFollowUpFrame" class="iframeWrapper">
+            <iframe id="followUpsIframe" src=""></iframe>
+        </div>
+    </div>
+</div>
+<!-- Begin Assignments Page *****************************************************************************************-->
+<div data-role="page" id="assignments" class="iframePage ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Assignments</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+         btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="loadingCover cssBlock"></div>
+        <div id="xdmAssignmentsFrame" class="iframeWrapper">
+            <iframe id="assignmentsIframe" src=""></iframe>
+        </div>
+    </div>
+</div>
+<!-- Begin Products Page ********************************************************************************************-->
+<div data-role="page" id="products" class="iframePage ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Products</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <a href="#" class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+        btnBorderRadius btnUpdatePos">No text</a>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="loadingCover cssBlock"></div>
+        <div id="xdmProductsFrame" class="iframeWrapper">
+            <iframe id="productsIframe" src="/"></iframe>
+        </div>
+    </div>
+</div>
+<!-- Begin Add Prospect Page ****************************************************************************************-->
+<div data-role="page" id="add" class="iframePage ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Add Prospect</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all
+         btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="loadingCover cssBlock"></div>
+        <div id="xdmAddFrame" class="iframeWrapper">
+            <iframe id="addIframe" src=""></iframe>
+        </div>
+    </div>
+</div>
+<!-- Begin Search Page **********************************************************************************************-->
+<div data-role="page" id="search" class="iframePage ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Search</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+         btnBorderRadius btnUpdatePos">No text
+        </button>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="loadingCover cssBlock"></div>
+        <div id="xdmSearchFrame" class="iframeWrapper">
+            <iframe id="searchIframe" src=""></iframe>
+        </div>
+    </div>
+</div>
+<!-- Device Info Page ***********************************************************************************************-->
+<div data-role="page" id="info" class="ui-responsive-panel">
+    <div data-role="header" data-position="fixed">
+        <div class="ui-title descH1">Device Info</div>
+        <button class="ui-btn ui-btn-left ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-corner-all
+             btnBorderRadius mainMenu">MENU
+        </button>
+        <button class="ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all 
+        btnBorderRadius btnUpdatePosDiPage">No text
+        </button>
+    </div>
+    <div id="infoC" role="main" class="ui-content">
+        <div class="deviceInfoWrapper">
+            <div class="centerDiv mw650">
+                <div data-role="collapsible-set" class="margin15">
+                    <div data-role="collapsible">
+                        <h3>Device Information</h3>
+
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="txtModel" class="paddingBottom5">Model:</label>
+                                <input name="Model" type="text" disabled id="txtModel" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="txtSystem" class="paddingBottom5">Platform:</label>
+                                <input name="System" type="text" disabled id="txtSystem" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="txtVersion" class="paddingBottom5">OS Version:</label>
+                                <input name="Version" type="text" disabled id="txtVersion" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>Swyft Info</h3>
+
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="txtAppVer" class="paddingBottom5">Application Version:</label>
+                                <input name="AppVer" type="text" disabled id="txtAppVer" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="userIDtxt" class="paddingBottom5"> User ID:</label>
+                                <input name="userID" type="text" disabled id="userIDtxt" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>Network Status</h3>
+
+                        <div id="diNetStatus">
+                            <div class="paddingBottom15 ui-field-contain">
+                                <fieldset>
+                                    <label for="netTypetxt" class="paddingBottom5">Connection Type:</label>
+                                    <input name="NetType" type="text" disabled id="netTypetxt" value="" readonly
+                                           class="diTextBox"/>
+                                </fieldset>
+                            </div>
+                            <div class="paddingBottom15 ui-field-contain">
+                                <fieldset>
+                                    <label for="gpsStatustxt" class="paddingBottom5">GPS Status:</label>
+                                    <input name="GPS" type="text" disabled id="gpsStatustxt" value="" readonly
+                                           class="diTextBox"/>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true" id="diLastLoc">
+                        <h3>Last Location</h3>
+
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="diLattxt" class="paddingBottom5">Last Known Lat:</label>
+                                <input name="Lat" type="text" disabled id="diLattxt" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="diLngtxt" class="paddingBottom5">Last Known Long:</label>
+                                <input name="Lng" type="text" disabled id="diLngtxt" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                        <div class="paddingBottom15 ui-field-contain">
+                            <fieldset>
+                                <label for="diLatlctxt" class="paddingBottom5">Last Checked:</label>
+                                <input name="Lat" type="text" disabled id="diLatlctxt" value="" readonly
+                                       class="diTextBox"/>
+                            </fieldset>
+                        </div>
+                        <!--<button class="ui-btn ui-icon-location ui-btn-icon-left btnUpdatePosDiPage">Update My
+                            Position
+                        </button>
+                        <div id="app_map_canvas" class="mapCanvas"></div>-->
+                    </div>
+                    <!--<div data-role="collapsible" data-collapsed="true" id="diDebug">
+                        <h3>Debug Tools</h3>
+
+                        <div style="text-align:center;">
+                            <div class="ui-field-contain" style="padding-bottom:15px; max-width:300px; margin:0 auto;">
+                                <fieldset>
+                                    <label for="debugBtn" style="font-weight:700;">DEBUG MODE STATUS:</label>
+                                    <select name="debugBtn" id="debugBtn" data-role="slider" data-corrners="false"
+                                            data-icon="alert">
+                                        <option value="false">Off</option>
+                                        <option value="true">On</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <div>
+                                <div id="debugIdWrapper">
+                                    <p id="debugIdTitle">Debug ID:</p>
+
+                                    <p id="debugId">&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Panel *****************************************************************************************************-->
+<div id="mainP">
+    <div class="panel-content">
+        <div class="logoImgBg">
+            <img src="img/Swyft-mobile-Logo.jpg" class="mainLogo mainPanelImg" width="230" height="66"
+                 alt="Swyft Mobile"/>
+        </div>
+        <ul id="mainMenu" data-role="listview" data-inset="true">
+            <li data-role="list-divider">Main Menu</li>
+            <li data-icon="home">
+                <a href="#" data-swyft-page="dash" class="btnMainNav">Dashboard</a>
+            </li>
+            <li data-icon="star">
+                <a href="#" data-swyft-page="local" class="btnMainNav">Local Market</a>
+            </li>
+            <li data-icon="calendar">
+                <a href="#" data-swyft-page="followUps" class="btnMainNav">Appointments
+                    <!-- <div class="ui-li-count followUpsCount">0</div>-->
+                </a>
+            </li>
+            <li data-icon="edit">
+                <a href="#" data-swyft-page="assignments" class="btnMainNav">Assignments
+                    <!-- <div class="ui-li-count assignmentsCount">0</div>-->
+                </a>
+            </li>
+            <li data-icon="plus">
+                <a href="#" data-swyft-page="add" class="btnMainNav">Add Prospect</a>
+            </li>
+            <li data-icon="search">
+                <a href="#" data-swyft-page="search" class="btnMainNav">Search</a>
+            </li>
+            <li data-role="list-divider" data-theme="d">External Links</li>
+            <li data-icon="search">
+                <a href="#" class="googleInApp">Google™</a>
+            </li>
+            <li data-icon="gear">
+                <a href="#" class="swyftUserVoiceInApp">Report A Bug</a>
+            </li>
+            <li data-role="list-divider" data-theme="d">System Options</li>
+            <li data-icon="info">
+                <a href="#info">Device Info</a>
+            </li>
+            <li data-icon="gear">
+                <a href="#setupHome">System Setup</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Load PhoneGap Scripts ******************************************************************************************-->
+
+<script type="text/javascript" src="cordova.js"></script>
+<!-- Swyft MVC ******************************************************************************************************-->
+<script src="js/swyft/global.js"></script>
+<script src="js/swyft/model.js"></script>
+<script src="js/swyft/view.js"></script>
+<script src="js/swyft/controller.js"></script>
+
+<script type="text/javascript" src="js/vendor/GoodDynamics.js"></script>
+
+</body>
+</html>
+ 

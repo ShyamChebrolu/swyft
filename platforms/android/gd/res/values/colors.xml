@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gd_red">#DA001E</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gd_common_background_color">#eeeeee</color>
+    <color name="transparent_black">#50000000</color>
+    <color name="splash_screen_red">#d72a1b</color>
+    <color name="light_red">#d52c26</color>
+    <color name="dark_gray">#333333</color>
+    <color name="light_gray">#c6c6c6</color>
+    <color name="grey">#99999999</color>
+</resources>
